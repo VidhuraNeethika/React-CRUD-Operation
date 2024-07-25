@@ -18,17 +18,43 @@ This project aims to demonstrate how to build a CRUD application using React as 
 - Make sure you have Node.js installed.
 
 ### Frontend Setup
-- Run `npm create vite@latest frontend` to initialize a new React project.
-- Run `cd frontend` to navigate to the project directory.
-- Run `npm install axios react-router-dom` to install the required dependencies.
-- Run `npm start` to start the development server.
+#### Run to initialize a new React project.
+```sh
+ npm create vite@latest frontend
+```
+
+#### Run to navigate to the project directory.
+```sh
+cd frontend
+```
+
+#### Run to install the required dependencies.
+```sh
+npm install axios react-router-dom
+```
+
+#### Run to start the development server.
+```sh
+npm start
+```
 
 ### Backend Setup
-- Then create a new directory inside the project directory and name it `backend`.
-- Run `npm init -y` to initialize a new Node.js project.
-- Run `npm install express mysql2 cors nodemon` to install the required dependencies.
-- Then create a new file inside the `backend` directory and name it `server.js`.
-- Then put the following code inside the `server.js` file:
+#### Then create a new directory inside the project directory and name it
+```sh
+backend
+```
+
+#### Run to initialize a new Node.js project.
+```sh
+npm init -y
+```
+
+#### Run to install the required dependencies.
+```sh
+npm install express mysql2 cors nodemon
+```
+#### Then create a new file inside the `backend` directory and name it `server.js`.
+#### Then put the following code inside the `server.js` file:
 
 ```javascript
 import express from "express";
