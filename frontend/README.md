@@ -1,8 +1,86 @@
-# React + Vite
+# React CRUD Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a CRUD (Create, Read, Update, Delete) application built using React, Express.js, MySQL 2, Axios, and CORS.
 
-Currently, two official plugins are available:
+## Introduction
+This project aims to demonstrate how to build a CRUD application using React as the frontend framework, Express.js as the backend framework, MySQL 2 as the database, and Axios for making HTTP requests. The application allows users to perform basic CRUD operations on a dataset.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- React: A JavaScript library for building user interfaces.
+- Express.js: A fast and minimalist web application framework for Node.js.
+- MySQL 2: A MySQL client for Node.js that supports promises.
+- Axios: A promise-based HTTP client for making API requests.
+- CORS: A mechanism that allows restricted resources on a web page to be requested from another domain.
+- Nodemon: A utility that monitors for any changes in the source code and automatically restarts the server.
+
+## Installation
+- Create a new directory.
+- Make sure you have Node.js installed.
+
+### Frontend Setup
+- Run `npm create vite@latest frontend` to initialize a new React project.
+- Run `cd frontend` to navigate to the project directory.
+- Run `npm install axios react-router-dom` to install the required dependencies.
+- Run `npm start` to start the development server.
+
+### Backend Setup
+- Then create a new directory inside the project directory and name it `backend`.
+- Run `npm init -y` to initialize a new Node.js project.
+- Run `npm install express mysql2 cors nodemon` to install the required dependencies.
+- Then create a new file inside the `backend` directory and name it `server.js`.
+- Then put the following code inside the `server.js` file:
+
+```javascript
+import express from "express";
+import cors from "cors";
+import mysql from "mysql2";
+
+const app = express();
+const port = 3000;
+app.use(cors()); // for allowing cross-origin requests from frontend to backend server.It is a middleware function.
+app.use(express.json()); // for parsing application/json
+
+app.listen(port, () => {
+  console.log(`Server listening on port : ${port}`);
+});
+```
+- After that put the following code inside the `package.json` file:
+
+```json
+"type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+```
+- Run `npm start` to start the server.
+
+### Database Setup
+- Make sure you have MySQL installed.
+- Create a new database and a table inside the database.
+- Put the following code inside the `server.js` file to connect to the database:
+
+```javascript
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "your_password",
+  database: "your_database",
+});
+```
+
+### Sample endpoint for fetching data from the database
+- Put the following code inside the `server.js` file to fetch data from the database:
+
+```javascript
+app.get("/", (req, res) => {
+  const queery = "SELECT * FROM user";
+  connection.query(queery, (err, result) => {
+    if (err) return res.json({ Message: err });
+    return res.json(result);
+  });
+});
+```
+
+## Conclusion
+This project demonstrates how to build a CRUD application using React, Express.js, MySQL 2, Axios, and CORS. The application allows users to perform basic CRUD operations on a dataset.
