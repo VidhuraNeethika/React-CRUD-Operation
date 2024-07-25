@@ -1,4 +1,4 @@
-# React CRUD Application
+# React CRUD Application Using Express.js and MySQL
 
 This is a CRUD (Create, Read, Update, Delete) application built using React, Express.js, MySQL 2, Axios, and CORS.
 
